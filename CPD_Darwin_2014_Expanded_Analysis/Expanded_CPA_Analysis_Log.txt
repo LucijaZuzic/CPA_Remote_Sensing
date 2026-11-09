@@ -1,0 +1,109 @@
+
+==============================================================================
+1. Expanded Descriptive Statistics & Correlation Matrix (GPS, Bx, By, Bz, TEC, Dst)
+==============================================================================
+indexing kp_file.csv [========---------------------------------------------------------------------------------------------] 2.15GB/s, eta:  0sindexing kp_file.csv [=====================================================================================================] 2.15GB/s, eta:  0s                                                                                                                                               # A tibble: 7 × 14
+  Variable              N          Min         Q1    Median      Mean        Q3       Max Variance     SD   IQR    MAD Skewness Kurtosis
+  <chr>             <int>        <dbl>      <dbl>     <dbl>     <dbl>     <dbl>     <dbl>    <dbl>  <dbl> <dbl>  <dbl>    <dbl>    <dbl>
+1 horizontal_error 519533      0.00193      1.29       2.25      3.19      4.36     20.4      7.04   2.65  3.06  1.79     1.50     2.19 
+2 Bx               519533  35268.       35400.     35410     35412.    35423.    35526.     459.    21.4  22.5  16.3     -0.130    2.70 
+3 By               519533   1900.        1988.      2001.     2001.     2015.     2092.     464.    21.5  27.1  20.2     -0.183    0.547
+4 Bz               519533 -29651.      -29623.    -29620    -29617.   -29613.   -29570.      99.3    9.96 10     6.38     1.17     1.57 
+5 TEC              519533      1            7.25      19.6      40.1      34.2    1288    13806.   117.   27.0  19.4      6.99    52.1  
+6 Dst              519533   -119          -20         -8       -10.9       0        46      248.    15.7  20    14.8     -0.993    2.34 
+7 Kp               519533      0            0.667      1.33      1.62      2.33      6.33     1.24   1.11  1.67  0.989    0.757    0.377
+wrote 2.15GB in  0s, 2.15GB/s                                                                                                                                             LaTeX table written to: CPD_Darwin_2014_Expanded_Analysis/Descriptive_Statistics_All_Variables.tex
+
+--- Pearson Correlation Matrix (All Variables) ---
+                 horizontal_error      Bx      By      Bz     TEC     Dst      Kp
+horizontal_error           1.0000 -0.0401  0.3131  0.3726  0.1230 -0.0910 -0.0237
+Bx                        -0.0401  1.0000 -0.0335  0.4122  0.0467  0.5384 -0.2796
+By                         0.3131 -0.0335  1.0000  0.1116  0.1813  0.1846 -0.2157
+Bz                         0.3726  0.4122  0.1116  1.0000  0.0815  0.0523 -0.0202
+TEC                        0.1230  0.0467  0.1813  0.0815  1.0000 -0.0683  0.0154
+Dst                       -0.0910  0.5384  0.1846  0.0523 -0.0683  1.0000 -0.5260
+Kp                        -0.0237 -0.2796 -0.2157 -0.0202  0.0154 -0.5260  1.0000
+
+--- Spearman Rank Correlation Matrix (All Variables) ---
+                 horizontal_error      Bx      By      Bz     TEC     Dst      Kp
+horizontal_error           1.0000 -0.0033  0.3085  0.4491  0.5719 -0.0973 -0.0225
+Bx                        -0.0033  1.0000 -0.0372  0.3749  0.2973  0.5040 -0.2590
+By                         0.3085 -0.0372  1.0000  0.0521  0.1974  0.2209 -0.2371
+Bz                         0.4491  0.3749  0.0521  1.0000  0.5004  0.0986 -0.0496
+TEC                        0.5719  0.2973  0.1974  0.5004  1.0000 -0.1767  0.0373
+Dst                       -0.0973  0.5040  0.2209  0.0986 -0.1767  1.0000 -0.4990
+Kp                        -0.0225 -0.2590 -0.2371 -0.0496  0.0373 -0.4990  1.0000
+wrote 2.15GB in  0s, 2.15GB/s                                                                                                                                             wrote 2.15GB in  0s, 2.15GB/s                                                                                                                                             
+==============================================================================
+2. Loading Detected Change Points & Linked Pairs for Bx, By, Bz, TEC, Dst
+==============================================================================
+indexing ChangePoints_GPS_Horizontal_Error_300.csv [=======================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing ChangePoints_Geomagnetic_Bx_300.csv [=============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing Linked_CP_Pairs_Bx_to_GPS_300.csv [===============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing ChangePoints_Geomagnetic_By_300.csv [=============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing Linked_CP_Pairs_By_to_GPS_300.csv [===============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing ChangePoints_Geomagnetic_Bz_300.csv [=============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing Linked_CP_Pairs_Bz_to_GPS_300.csv [===============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing ChangePoints_Geomagnetic_TEC_300.csv [============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing Linked_CP_Pairs_TEC_to_GPS_300.csv [==============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing ChangePoints_Geomagnetic_Dst_300.csv [============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               indexing Linked_CP_Pairs_Dst_to_GPS_300.csv [==============================================================================] 2.15GB/s, eta:  0s                                                                                                                                               
+==============================================================================
+3. Hypothesis Testing & Monte Carlo Permutation Test for Cause-Effect CP Linking
+==============================================================================
+Kruskal-Wallis test across 5 components: chi-squared = 15.2740, df = 4, p-value = 0.004165
+                  Df    Sum Sq  Mean Sq F value  Pr(>F)   
+Cause_Component    4 2.913e+08 72823351   3.977 0.00327 **
+Residuals       1233 2.258e+10 18309497                   
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+Monte Carlo Null Model (500 runs): Expected N_pairs = 219.54 +/- 10.96, Expected Mean Delay = 6908.47 +/- 272.31 s
+<simpleError in optim(par = vstart, fn = fnobj, fix.arg = fix.arg, obs = data,     gr = gradient, ddistnam = ddistname, hessian = TRUE, method = meth,     lower = lower, upper = upper, ...): non-finite finite-difference value [2]>
+<simpleError in optim(par = vstart, fn = fnobj, fix.arg = fix.arg, obs = data,     gr = gradient, ddistnam = ddistname, hessian = TRUE, method = meth,     lower = lower, upper = upper, ...): non-finite finite-difference value [2]>
+<simpleError in optim(par = vstart, fn = fnobj, fix.arg = fix.arg, obs = data,     gr = gradient, ddistnam = ddistname, hessian = TRUE, method = meth,     lower = lower, upper = upper, ...): non-finite finite-difference value [2]>
+<simpleError in optim(par = vstart, fn = fnobj, fix.arg = fix.arg, obs = data,     gr = gradient, ddistnam = ddistname, hessian = TRUE, method = meth,     lower = lower, upper = upper, ...): non-finite finite-difference value [2]>
+<simpleError in optim(par = vstart, fn = fnobj, fix.arg = fix.arg, obs = data,     gr = gradient, ddistnam = ddistname, hessian = TRUE, method = meth,     lower = lower, upper = upper, ...): non-finite finite-difference value [2]>
+# A tibble: 5 × 11
+  Cause_Component Total_CPs Linked_Pairs Match_Rate_Pct MC_Null_Pairs Z_Score_Pairs p_val_MC_Pairs KS_Stat_Unif KS_p_val Wilcox_p_val
+  <chr>               <int>        <int>          <dbl>         <dbl>         <dbl>          <dbl>        <dbl>    <dbl>        <dbl>
+1 Bx                    728          245           33.7          220.          2.32        0.0140        0.0517 0.530         0.421  
+2 By                    728          259           35.6          220.          3.60        0.00200       0.125  0.000580      0.00153
+3 Bz                    728          281           38.6          220.          5.61        0.00200       0.0680 0.149         0.475  
+4 TEC                   726          204           28.1          220.         -1.42        0.920         0.0555 0.557         0.366  
+5 Dst                   728          249           34.2          220.          2.69        0.00200       0.0851 0.0545        0.0318 
+# ℹ 1 more variable: Best_Fit_Dist <chr>
+wrote 2.15GB in  0s, 2.15GB/s                                                                                                                                             LaTeX table written to: CPD_Darwin_2014_Expanded_Analysis/Hypothesis_Testing_and_MC_Null_Summary.tex
+
+==============================================================================
+4. Sensitivity Analysis Across Maximum Allowed Lag Thresholds x
+==============================================================================
+# A tibble: 25 × 9
+   Cause_Component Max_Lag_Hours Max_Lag_s N_Pairs Match_Rate_Pct Mean_Delay_s SD_Delay_s Median_Delay_s IQR_Delay_s
+   <chr>                   <dbl>     <dbl>   <int>          <dbl>        <dbl>      <dbl>          <dbl>       <dbl>
+ 1 Bx                          1      3600      57           7.83        1705.      1081.          1786.       2202.
+ 2 Bx                          2      7200     118          16.2         3660.      2198.          3759.       3711.
+ 3 Bx                          3     10800     177          24.3         5492.      3208.          5547.       5586.
+ 4 Bx                          4     14400     245          33.7         7420.      4181.          7509.       7251.
+ 5 Bx                          6     21600     351          48.2        10558.      6015.         10676.      10053.
+ 6 By                          1      3600      51           7.01        1837.       984.          1712.       1494.
+ 7 By                          2      7200     108          14.8         3705.      2031.          3845.       3494.
+ 8 By                          3     10800     175          24.0         5855.      3233.          5668.       5706.
+ 9 By                          4     14400     259          35.6         8029.      4157.          8779.       6968.
+10 By                          6     21600     361          49.6        10751.      5689.         10935.       9253.
+# ℹ 15 more rows
+# ℹ Use `print(n = ...)` to see more rows
+wrote 2.55kB in  0s, 194.62MB/s                                                                                                                                             wrote 2.15GB in  0s, 2.15GB/s                                                                                                                                             LaTeX table written to: CPD_Darwin_2014_Expanded_Analysis/Sensitivity_Analysis_Max_Lag.tex
+
+==============================================================================
+5. Stratification by GFZ Kp Geomagnetic Regime (Active Kp_max >= 4 vs Quiet Kp_max < 4)
+==============================================================================
+# A tibble: 10 × 7
+   Cause_Component Regime                 N_Pairs Mean_Delay_s SD_Delay_s Median_Delay_s IQR_Delay_s
+   <fct>           <chr>                    <int>        <dbl>      <dbl>          <dbl>       <dbl>
+ 1 Bx              Active/Storm (Kp >= 4)      33        7410.      3837.          7650.       5894.
+ 2 Bx              Quiet (Kp < 4)             212        7422.      4241.          7444.       7249.
+ 3 By              Active/Storm (Kp >= 4)      45        7990.      3959.          8491.       6207.
+ 4 By              Quiet (Kp < 4)             214        8037.      4207.          8821.       7055.
+ 5 Bz              Active/Storm (Kp >= 4)      41        7269.      3990.          7761.       7386.
+ 6 Bz              Quiet (Kp < 4)             240        6984.      4523.          7106.       8721.
+ 7 TEC             Active/Storm (Kp >= 4)      31        7489.      3476.          7248.       3907.
+ 8 TEC             Quiet (Kp < 4)             173        7450.      4391.          7401.       8059.
+ 9 Dst             Active/Storm (Kp >= 4)      39        5896.      4154.          5118.       5866.
+10 Dst             Quiet (Kp < 4)             210        6724.      4355.          6516.       7145.
+wrote 2.15GB in  0s, 2.15GB/s                                                                                                                                             LaTeX table written to: CPD_Darwin_2014_Expanded_Analysis/Stratified_Delay_By_Kp_Regime.tex
+
+==============================================================================
+6. Generating Publication-Ready Multi-Component Figures
+==============================================================================
+
+Expanded CPA analysis completed successfully. All tables and figures saved in: CPD_Darwin_2014_Expanded_Analysis 
